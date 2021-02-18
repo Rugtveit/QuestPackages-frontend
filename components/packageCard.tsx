@@ -20,10 +20,15 @@ const PackageCard = (cardProp: cardProp) => {
             <h1 className={styles.packageName}>{cardProp.packageName}</h1>
             <div className={styles.buttons}>
                 
+                <a className={styles.button} 
+                href={`http://localhost:3000/details/${cardProp.packageId}`}>
+                    Details
+                </a>
+
                 <a className={styles.button}
                 style={{display: cardProp.packageUrl? "block" : "none"}} 
                 href={cardProp.packageUrl}>
-                    Github
+                    GitHub
                 </a>
                 
                 <a className={styles.button} 

@@ -1,0 +1,42 @@
+.container {
+    margin: 0 auto;
+    max-width: 500px;
+    width: 80%;
+}
+
+.backButton 
+{
+    margin-top: 45px;
+    display: flex;
+    color: #6F6F6F;
+}
+
+.backButton:hover
+{
+    color: #8281D8;
+}
+
+.arrow
+{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.arrow:hover
+{
+    stroke: #8281D8;
+}
+
+.arrow.path:hover
+{
+    stroke: #8281D8;
+}
+.backText
+{
+    margin-left: 12px;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15.0069px;
+    line-height: 135%;
+}

@@ -21,9 +21,9 @@ export default function Home(
     <div className={styles.container}>
       <Header/>
       <div className={styles.packageCards}>
-        {packageData.map(({name, downloadUrl, url, version, dependency, versions}) => {
+        {packageData.map(({name, downloadUrl, url, version, dependency, versions, id}) => {
           return (<div>
-            <PackageCard packageName={name} packageVersion={version} packageUrl={url} packageDownload={downloadUrl}/>
+            <PackageCard packageName={name} packageVersion={version} packageId={id} packageUrl={url} packageDownload={downloadUrl}/>
            </div>)
         })}
       </div>
@@ -38,7 +38,6 @@ export const getStaticProps: GetStaticProps =  async () => {
   if(apiResponse.ok)
   {
     let json = await apiResponse.json();
-    //console.log(json);
     packageData = json;
   }  
   
