@@ -16,10 +16,10 @@
 
 .cardName
 {
-    font-family: Raleway;
+    font-family: 'Raleway', sans-serif;
     font-style: normal;
     font-weight: 600;
-    font-size: 34.5956px;
+    font-size: 34.6px;
     line-height: 41px;
     color: #262626;
     margin: 15px 0px 5px 0px;
@@ -28,10 +28,10 @@
 
 .cardId
 {
-    font-family: Raleway;
+    font-family: 'Raleway', sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 17.2978px;
+    font-size: 17.3px;
     line-height: 20px;
     color: #262626;
     margin: 0px;

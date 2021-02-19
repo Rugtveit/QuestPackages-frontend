@@ -1,6 +1,6 @@
 import { AppProps } from 'next/dist/next-server/lib/router/router'
 import { Component, ReactPropTypes } from 'react'
-import styles from '../styles/Card.module.css'
+import styles from '../styles/PackageCard.module.css'
 import {useState} from 'react' 
 
 class cardProp 
