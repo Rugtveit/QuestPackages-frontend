@@ -1,7 +1,5 @@
-import { AppProps } from "next/dist/next-server/lib/router/router";
-import { Component, ReactPropTypes } from "react";
 import styles from "../styles/PackageCard.module.css";
-import { useState } from "react";
+import Button from "./button";
 
 class packageCardProp {
   packageName: string;
@@ -17,28 +15,20 @@ const PackageCard = (cardProp: packageCardProp) => {
     <div className={styles.card}>
       <h1 className={styles.packageName}>{cardProp.packageName}</h1>
       <div className={styles.buttons}>
-        <a
-          className={styles.button}
-          href={`http://localhost:3000/details/${cardProp.packageId}`}
-        >
-          Details
-        </a>
-
-        <a
-          className={styles.button}
+        <Button
+          link={`http://localhost:3000/details/${cardProp.packageId}`}
+          name="Details"
+        />
+        <Button
           style={{ display: cardProp.packageUrl ? "block" : "none" }}
-          href={cardProp.packageUrl}
-        >
-          {cardProp.urlButtonName}
-        </a>
-
-        <a
-          className={styles.button}
+          link={cardProp.packageUrl}
+          name={cardProp.urlButtonName}
+        />
+        <Button
           style={{ display: cardProp.packageDownload ? "block" : "none" }}
-          href={cardProp.packageDownload}
-        >
-          Download
-        </a>
+          link={cardProp.packageDownload}
+          name="Download"
+        />
       </div>
       <div className={styles.packageVersion}>v{cardProp.packageVersion}</div>
     </div>

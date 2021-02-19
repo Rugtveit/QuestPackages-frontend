@@ -1,7 +1,6 @@
-import { AppProps } from "next/dist/next-server/lib/router/router";
-import { Component, ReactPropTypes } from "react";
 import styles from "../styles/DetailsCard.module.css";
-import { useState } from "react";
+import Button from "./button";
+import Field from "./field";
 
 class detailsCardProp {
   packageName: string;
@@ -17,33 +16,20 @@ class detailsCardProp {
 }
 
 const DetailsCard = (props: detailsCardProp) => {
-    console.log(props.packageDownloads);
-    return (
+  console.log(props.packageDownloads);
+  return (
     <div className={styles.card}>
       <h1 className={styles.cardName}>{props.packageName}</h1>
       <h2 className={styles.cardId}>{props.packageId}</h2>
       <p className={styles.description}>{props.packageDescription}</p>
-      <div className={styles.stats}>
-        <div className={styles.stat}>
-          <h1 className={styles.statName}>Author</h1>
-          <h2 className={styles.statValue}>{props.packageAuthor}</h2>
-        </div>
-        <div className={styles.stat}>
-          <h1 className={styles.statName}>Downloads</h1>
-          <h2 className={styles.statValue}>{props.packageDownloads}</h2>
-        </div>
-        <div className={styles.stat}>
-          <h1 className={styles.statName}>Published</h1>
-          <h2 className={styles.statValue}>{props.packagePublished}</h2>
-        </div>
+      <div className={styles.fields}>
+        <Field name="Author" value={props.packageAuthor} />
+        <Field name="Downloads" value={props.packageDownloads} />
+        <Field name="Date" value={props.packagePublished} />
       </div>
       <div className={styles.buttons}>
-        <a href={props.packageUrl} className={styles.button}>
-          GitHub
-        </a>
-        <a href={props.packageDownload} className={styles.button}>
-          Download
-        </a>
+        <Button link={props.packageUrl} name="GitHub" />
+        <Button link={props.packageDownload} name="Download" />
       </div>
       <div className={styles.packageVersion}>v{props.packageVersion}</div>
     </div>

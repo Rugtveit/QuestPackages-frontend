@@ -1,0 +1,27 @@
+.field {
+  margin-left: 46px;
+}
+
+.field:first-of-type {
+  margin: 0;
+}
+
+.fieldName {
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18.4545px;
+  line-height: 22px;
+  text-align: center;
+  margin: 2px;
+}
+
+.fieldValue {
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15.8182px;
+  line-height: 19px;
+  text-align: center;
+  margin: 2px;
+}
