@@ -45,7 +45,9 @@ export default function Home({
 
 export const getStaticProps: GetStaticProps = async () => {
   process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
-  let apiResponse: AxiosResponse = await Axios.get("http://localhost:5000/api/package");
+  let apiResponse: AxiosResponse = await Axios.get(
+    "http://localhost:5000/api/package"
+  );
   let packageData = apiResponse.data;
 
   return {
