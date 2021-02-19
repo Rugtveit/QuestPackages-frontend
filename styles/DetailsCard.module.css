@@ -1,142 +1,125 @@
-.card 
-{
-    height: 620px;
-    width: 500px;
-    border-radius: 15px;
-    background: #FFFFFF;
-    border: 0.5px solid #CFCFCF;
-    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    margin-top: 5px;
+.card {
+  height: 620px;
+  width: 500px;
+  border-radius: 15px;
+  background: #ffffff;
+  border: 0.5px solid #cfcfcf;
+  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  margin-top: 5px;
 }
 
-.cardName
-{
-    font-family: 'Raleway', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 34.6px;
-    line-height: 41px;
-    color: #262626;
-    margin: 15px 0px 5px 0px;
-
+.cardName {
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 34.6px;
+  line-height: 41px;
+  color: #262626;
+  margin: 15px 0px 5px 0px;
 }
 
-.cardId
-{
-    font-family: 'Raleway', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 17.3px;
-    line-height: 20px;
-    color: #262626;
-    margin: 0px;
+.cardId {
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17.3px;
+  line-height: 20px;
+  color: #262626;
+  margin: 0px;
 }
 
-.description
-{
-    font-family: 'Raleway', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 22.6px;
-    line-height: 135%;
-    color: #202020;
-    width: 370px;
-    height: 250px;
+.description {
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22.6px;
+  line-height: 135%;
+  color: #202020;
+  width: 370px;
+  height: 250px;
 }
 
-.stats
-{
-    margin-top: 30px;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
+.stats {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
 }
 
-
-.stat
-{
-    margin-left: 46px;
+.stat {
+  margin-left: 46px;
 }
 
-.stat:first-of-type
-{
-    margin: 0;
+.stat:first-of-type {
+  margin: 0;
 }
 
-
-.statName
-{
-    font-family: 'Raleway', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18.4545px;
-    line-height: 22px;
-    text-align: center;
-    margin: 2px;
+.statName {
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18.4545px;
+  line-height: 22px;
+  text-align: center;
+  margin: 2px;
 }
 
-.statValue
-{
-    font-family: 'Raleway', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 15.8182px;
-    line-height: 19px;
-    text-align: center;
-    margin: 2px;
+.statValue {
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15.8182px;
+  line-height: 19px;
+  text-align: center;
+  margin: 2px;
 }
 
-.buttons
-{
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
+.buttons {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
 }
 
-.button:first-of-type
-{
-    margin-left: 0px;
+.button:first-of-type {
+  margin-left: 0px;
 }
 
-.button 
-{
-    border: 3px solid #8281D8;
-    box-sizing: border-box;
-    border-radius: 4px;
-    width: 110px;
-    height: 45px;
-    background-color: white;
-    text-align: center;
-    margin-left: 10px;
-    text-align: center;
-    line-height: 38px;
-    font-family: 'Raleway', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-    color: #8281D8;
+.button {
+  border: 3px solid #8281d8;
+  box-sizing: border-box;
+  border-radius: 4px;
+  width: 110px;
+  height: 45px;
+  background-color: white;
+  text-align: center;
+  margin-left: 10px;
+  text-align: center;
+  line-height: 38px;
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  color: #8281d8;
 }
 
-.button:hover
-{
-    background-color: #8281D8;
-    color: white;
+.button:hover {
+  background-color: #8281d8;
+  color: white;
 }
 
-.packageVersion
-{
-    margin: 40px 15px 15px 15px;
-    text-align: end;
-    font-family: 'Raleway', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    text-align: right;
-    margin-left: auto;
-    color: #646464;
+.packageVersion {
+  margin: 40px 15px 15px 15px;
+  text-align: end;
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  text-align: right;
+  margin-left: auto;
+  color: #646464;
 }

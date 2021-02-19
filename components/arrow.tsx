@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react";
 
 function Arrow(props) {
   return (
@@ -18,7 +18,7 @@ function Arrow(props) {
         strokeLinejoin="bevel"
       />
     </svg>
-  )
+  );
 }
 
-export default Arrow
+export default Arrow;
