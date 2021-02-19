@@ -17,7 +17,8 @@ class detailsCardProp {
 }
 
 const DetailsCard = (props: detailsCardProp) => {
-  return (
+    console.log(props.packageDownloads);
+    return (
     <div className={styles.card}>
       <h1 className={styles.cardName}>{props.packageName}</h1>
       <h2 className={styles.cardId}>{props.packageId}</h2>
