@@ -10,6 +10,7 @@ class cardProp
     packageUrl: string;
     packageDownload: string;
     packageId: string;
+    urlButtonName: string;
 }
 
 const PackageCard = (cardProp: cardProp) => {
@@ -28,7 +29,7 @@ const PackageCard = (cardProp: cardProp) => {
                 <a className={styles.button}
                 style={{display: cardProp.packageUrl? "block" : "none"}} 
                 href={cardProp.packageUrl}>
-                    GitHub
+                    {cardProp.urlButtonName}
                 </a>
                 
                 <a className={styles.button} 

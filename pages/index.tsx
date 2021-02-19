@@ -18,13 +18,15 @@ export default function Home(
     }[]
   }) {
 
+
   return (
     <div className={styles.container}>
       <Header/>
       <div className={styles.packageCards}>
         {packageData.map(({name, downloadUrl, url, version, dependency, versions, id}) => {
+          const buttonName = getButtonName(url);
           return (<div>
-            <PackageCard packageName={name} packageVersion={version} packageId={id} packageUrl={url} packageDownload={downloadUrl}/>
+            <PackageCard urlButtonName={buttonName} packageName={name} packageVersion={version} packageId={id} packageUrl={url} packageDownload={downloadUrl}/>
            </div>)
         })}
       </div>
@@ -46,5 +48,19 @@ export const getStaticProps: GetStaticProps =  async () => {
     props: {
       packageData,
     },
+  }
+}
+
+let getButtonName = (url) => 
+{
+  let domain = (new URL(url));
+  switch(domain.host)
+  {
+    case 'drive.google.com':
+        return 'Download'
+    case 'github.com':
+        return 'GitHub';
+    default: 
+        return 'URL';
   }
 }
