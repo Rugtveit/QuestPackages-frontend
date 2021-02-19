@@ -1,8 +1,8 @@
-import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Header from "../components/header";
 import PackageCard from "../components/packageCard";
 import { GetStaticProps } from "next";
+import Axios, { AxiosResponse } from "axios";
 
 export default function Home({
   packageData,
@@ -45,12 +45,8 @@ export default function Home({
 
 export const getStaticProps: GetStaticProps = async () => {
   process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
-  let apiResponse: Response = await fetch("http://localhost:5000/api/package");
-  let packageData;
-  if (apiResponse.ok) {
-    let json = await apiResponse.json();
-    packageData = json;
-  }
+  let apiResponse: AxiosResponse = await Axios.get("http://localhost:5000/api/package");
+  let packageData = apiResponse.data;
 
   return {
     props: {

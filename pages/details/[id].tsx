@@ -1,11 +1,10 @@
-import { route } from "next/dist/next-server/server/router";
 import { useRouter } from "next/router";
 import Header from "../../components/header";
-import Image from "next/image";
 import styles from "../../styles/Details.module.css";
 import Arrow from "../../components/arrow";
 import DetailsCard from "../../components/detailsCard";
 import { useState } from "react";
+import Axios from "axios";
 
 export default function Package({ packageData }) {
   const router = useRouter();
@@ -13,7 +12,6 @@ export default function Package({ packageData }) {
   const [isShown, setIsShown] = useState(false);
   const description =
     "This is a test description for now as I haven't gotten it yet!";
-
   return (
     <div className={styles.container}>
       <Header />
@@ -44,8 +42,8 @@ export default function Package({ packageData }) {
 
 export async function getStaticProps({ params }) {
   process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
-  const req = await fetch(`http://localhost:5000/api/package/${params.id}`);
-  const data = await req.json();
+  const req = await Axios.get(`http://localhost:5000/api/package/${params.id}`);
+  const data = req.data;
 
   return {
     props: { packageData: data },
@@ -54,8 +52,8 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
-  const req = await fetch(`http://localhost:5000/api/package/ids`);
-  const data = await req.json();
+  const req = await Axios.get(`http://localhost:5000/api/package/ids`);
+  const data = await req.data;
 
   const paths = data.map((packageData) => {
     return { params: { id: packageData } };
@@ -78,4 +76,6 @@ let getPackageDetails = async (url) => {
     };
     return Obj;
   }
+
+
 };
