@@ -29,7 +29,7 @@ const DetailsCard = (props: detailsCardProp) => {
         <Field name="Date" value={props.packagePublished} />
       </div>
       <div className={Styles.buttons}>
-        <Button link={props.packageUrl} name="GitHub" />
+        <Button link={props.packageUrl} name={props.urlButtonName} />
         <Button link={props.packageDownload} name="Download" />
       </div>
       <div className={Styles.packageVersion}>v{props.packageVersion}</div>

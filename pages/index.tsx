@@ -6,6 +6,7 @@ import Styles from "../styles/Home.module.css";
 import Header from "../components/header";
 import PackageCard from "../components/packageCard";
 
+import getButtonName from "../helpers/button/getButtonName";
 
 export default function Home({
   packageData,
@@ -24,23 +25,21 @@ export default function Home({
     <div className={Styles.container}>
       <Header />
       <div className={Styles.packageCards}>
-        {packageData.map(
-          ({ name, downloadUrl, url, version, dependency, versions, id }) => {
-            const buttonName = getButtonName(url);
-            return (
-              <div>
-                <PackageCard
-                  urlButtonName={buttonName}
-                  packageName={name}
-                  packageVersion={version}
-                  packageId={id}
-                  packageUrl={url}
-                  packageDownload={downloadUrl}
-                />
-              </div>
-            );
-          }
-        )}
+        {packageData.map(({ name, downloadUrl, url, version, id }) => {
+          const buttonName = getButtonName(url);
+          return (
+            <div>
+              <PackageCard
+                urlButtonName={buttonName}
+                packageName={name}
+                packageVersion={version}
+                packageId={id}
+                packageUrl={url}
+                packageDownload={downloadUrl}
+              />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -58,16 +57,4 @@ export const getStaticProps: GetStaticProps = async () => {
       packageData,
     },
   };
-};
-
-let getButtonName = (url) => {
-  let domain = new URL(url);
-  switch (domain.host) {
-    case "drive.google.com":
-      return "Download";
-    case "github.com":
-      return "GitHub";
-    default:
-      return "URL";
-  }
 };

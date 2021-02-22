@@ -8,6 +8,9 @@ import Arrow from "../../components/arrow";
 import DetailsCard from "../../components/detailsCard";
 import Header from "../../components/header";
 
+import getButtonName from "../../helpers/button/getButtonName"
+
+import getPackageDetails from "../../helpers/package/getPackageDetails"
 
 export default function Package({ packageData, packageDetails }) {
   const router = useRouter();
@@ -19,6 +22,8 @@ export default function Package({ packageData, packageDetails }) {
   if (packageDetails.description == "null") {
     packageDetails.description = "No description found";
   }
+
+  let buttonName = getButtonName(packageData.url);
   return (
     <div className={Styles.container}>
       <Header />
@@ -35,6 +40,7 @@ export default function Package({ packageData, packageDetails }) {
         />
         <h3 className={Styles.backText}>Back to packages</h3>
       </a>
+      
       <DetailsCard
         packageName={packageData.name}
         packageId={packageData.id}
@@ -45,6 +51,7 @@ export default function Package({ packageData, packageDetails }) {
         packageAuthor={packageDetails.author}
         packageDownloads={packageDetails.downloads}
         packagePublished={packageDetails.published}
+        urlButtonName = {buttonName}
       />
     </div>
   );
@@ -55,8 +62,7 @@ export async function getStaticProps({ params }) {
   const req = await Axios.get(`http://localhost:5000/api/package/${params.id}`);
   const data = req.data;
   let details = await getPackageDetails(data.downloadUrl);
-  console.log(details);
-
+  
   return {
     props: { packageData: data, packageDetails: details },
   };
@@ -76,67 +82,3 @@ export async function getStaticPaths() {
     fallback: false,
   };
 }
-
-let sendQuery = async (author, repo, tagName) => {
-  let response = await Axios({
-    url: "https://api.github.com/graphql",
-    method: "post",
-    headers: { Authorization: `bearer ${process.env.GITHUB_TOKEN}` },
-    data: {
-      query: `{
-                repository(name: "${repo}", owner: "${author}") {
-                  description
-                  release(tagName: "${tagName}") {
-                    createdAt
-                    releaseAssets(first: 5) {
-                      nodes {
-                        downloadCount
-                      }
-                    }
-                  }
-                }
-              }`,
-    },
-  });
-
-  return response.data;
-};
-
-let getPackageDetails = async (url) => {
-  var errorObj = {
-    author: "Unknown",
-    downloads: "0",
-    published: "Unknown",
-    description: `This package doesn't use Github, so at the moment it's not possible to get a description!`,
-  };
-
-  if (!url) return errorObj;
-
-  let domain = new URL(url);
-  if (domain.host != "github.com") {
-    return errorObj;
-  }
-
-  var urlPaths = domain.pathname.split("/");
-  console.log(urlPaths[1]);
-  console.log(urlPaths[2]);
-  console.log(urlPaths[5]);
-
-  let queryData = await sendQuery(urlPaths[1], urlPaths[2], urlPaths[5]);
-  return queryDataToObj(queryData, urlPaths[1]);
-};
-
-let queryDataToObj = (queryData, author) => {
-  let releaseDownloads = queryData.data.repository.release.releaseAssets.nodes;
-  let downloadCount =
-    releaseDownloads[0].downloadCount + releaseDownloads[1].downloadCount;
-  console.log(downloadCount);
-  let obj = {
-    author: `${author}`,
-    downloads: `${downloadCount}`,
-    published: `${queryData.data.repository.release.createdAt}`,
-    description: `${queryData.data.repository.description}`,
-  };
-
-  return obj;
-};
