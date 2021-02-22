@@ -1,4 +1,5 @@
-import styles from "../styles/PackageCard.module.css";
+import Styles from "../styles/PackageCard.module.css";
+
 import Button from "./button";
 
 class packageCardProp {
@@ -12,9 +13,9 @@ class packageCardProp {
 
 const PackageCard = (cardProp: packageCardProp) => {
   return (
-    <div className={styles.card}>
-      <h1 className={styles.packageName}>{cardProp.packageName}</h1>
-      <div className={styles.buttons}>
+    <div className={Styles.card}>
+      <h1 className={Styles.packageName}>{cardProp.packageName}</h1>
+      <div className={Styles.buttons}>
         <Button
           link={`http://localhost:3000/details/${cardProp.packageId}`}
           name="Details"
@@ -30,7 +31,7 @@ const PackageCard = (cardProp: packageCardProp) => {
           name="Download"
         />
       </div>
-      <div className={styles.packageVersion}>v{cardProp.packageVersion}</div>
+      <div className={Styles.packageVersion}>v{cardProp.packageVersion}</div>
     </div>
   );
 };

@@ -1,10 +1,13 @@
+import Axios from "axios";
+import { useState } from "react";
 import { useRouter } from "next/router";
-import Header from "../../components/header";
-import styles from "../../styles/Details.module.css";
+
+import Styles from "../../styles/Details.module.css";
+
 import Arrow from "../../components/arrow";
 import DetailsCard from "../../components/detailsCard";
-import { useState } from "react";
-import Axios from "axios";
+import Header from "../../components/header";
+
 
 export default function Package({ packageData, packageDetails }) {
   const router = useRouter();
@@ -17,20 +20,20 @@ export default function Package({ packageData, packageDetails }) {
     packageDetails.description = "No description found";
   }
   return (
-    <div className={styles.container}>
+    <div className={Styles.container}>
       <Header />
 
       <a
         href="http://localhost:3000"
         onMouseEnter={() => setIsShown(true)}
         onMouseLeave={() => setIsShown(false)}
-        className={styles.backButton}
+        className={Styles.backButton}
       >
         <Arrow
-          className={styles.arrow}
+          className={Styles.arrow}
           color={isShown ? "#8281D8" : "#6F6F6F"}
         />
-        <h3 className={styles.backText}>Back to packages</h3>
+        <h3 className={Styles.backText}>Back to packages</h3>
       </a>
       <DetailsCard
         packageName={packageData.name}

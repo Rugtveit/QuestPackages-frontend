@@ -1,8 +1,11 @@
-import styles from "../styles/Home.module.css";
+import Axios, { AxiosResponse } from "axios";
+import { GetStaticProps } from "next";
+
+import Styles from "../styles/Home.module.css";
+
 import Header from "../components/header";
 import PackageCard from "../components/packageCard";
-import { GetStaticProps } from "next";
-import Axios, { AxiosResponse } from "axios";
+
 
 export default function Home({
   packageData,
@@ -18,9 +21,9 @@ export default function Home({
   }[];
 }) {
   return (
-    <div className={styles.container}>
+    <div className={Styles.container}>
       <Header />
-      <div className={styles.packageCards}>
+      <div className={Styles.packageCards}>
         {packageData.map(
           ({ name, downloadUrl, url, version, dependency, versions, id }) => {
             const buttonName = getButtonName(url);

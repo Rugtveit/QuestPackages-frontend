@@ -1,4 +1,5 @@
-import styles from "../styles/DetailsCard.module.css";
+import Styles from "../styles/DetailsCard.module.css";
+
 import Button from "./button";
 import Field from "./field";
 
@@ -18,20 +19,20 @@ class detailsCardProp {
 const DetailsCard = (props: detailsCardProp) => {
   console.log(props.packageDownloads);
   return (
-    <div className={styles.card}>
-      <h1 className={styles.cardName}>{props.packageName}</h1>
-      <h2 className={styles.cardId}>{props.packageId}</h2>
-      <p className={styles.description}>{props.packageDescription}</p>
-      <div className={styles.fields}>
+    <div className={Styles.card}>
+      <h1 className={Styles.cardName}>{props.packageName}</h1>
+      <h2 className={Styles.cardId}>{props.packageId}</h2>
+      <p className={Styles.description}>{props.packageDescription}</p>
+      <div className={Styles.fields}>
         <Field name="Author" value={props.packageAuthor} />
         <Field name="Downloads" value={props.packageDownloads} />
         <Field name="Date" value={props.packagePublished} />
       </div>
-      <div className={styles.buttons}>
+      <div className={Styles.buttons}>
         <Button link={props.packageUrl} name="GitHub" />
         <Button link={props.packageDownload} name="Download" />
       </div>
-      <div className={styles.packageVersion}>v{props.packageVersion}</div>
+      <div className={Styles.packageVersion}>v{props.packageVersion}</div>
     </div>
   );
 };
