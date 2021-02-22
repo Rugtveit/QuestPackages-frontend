@@ -1,4 +1,4 @@
-import Styles from "../styles/DetailsCard.module.css";
+import Styles from "styles/DetailsCard.module.css";
 
 import Button from "./button";
 import Field from "./field";

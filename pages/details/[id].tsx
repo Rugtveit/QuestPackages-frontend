@@ -2,15 +2,15 @@ import Axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-import Styles from "../../styles/Details.module.css";
+import Styles from "styles/Details.module.css";
 
-import Arrow from "../../components/arrow";
-import DetailsCard from "../../components/detailsCard";
-import Header from "../../components/header";
+import Arrow from "components/arrow";
+import DetailsCard from "components/detailsCard";
+import Header from "components/header";
 
-import getButtonName from "../../helpers/button/getButtonName"
+import getButtonName from "helpers/button/getButtonName";
 
-import getPackageDetails from "../../helpers/package/getPackageDetails"
+import getPackageDetails from "helpers/package/getPackageDetails";
 
 export default function Package({ packageData, packageDetails }) {
   const router = useRouter();
@@ -40,7 +40,7 @@ export default function Package({ packageData, packageDetails }) {
         />
         <h3 className={Styles.backText}>Back to packages</h3>
       </a>
-      
+
       <DetailsCard
         packageName={packageData.name}
         packageId={packageData.id}
@@ -51,7 +51,7 @@ export default function Package({ packageData, packageDetails }) {
         packageAuthor={packageDetails.author}
         packageDownloads={packageDetails.downloads}
         packagePublished={packageDetails.published}
-        urlButtonName = {buttonName}
+        urlButtonName={buttonName}
       />
     </div>
   );
@@ -62,7 +62,7 @@ export async function getStaticProps({ params }) {
   const req = await Axios.get(`http://localhost:5000/api/package/${params.id}`);
   const data = req.data;
   let details = await getPackageDetails(data.downloadUrl);
-  
+
   return {
     props: { packageData: data, packageDetails: details },
   };

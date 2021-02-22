@@ -1,12 +1,12 @@
 import Axios, { AxiosResponse } from "axios";
 import { GetStaticProps } from "next";
 
-import Styles from "../styles/Home.module.css";
+import Styles from "styles/Home.module.css";
 
-import Header from "../components/header";
-import PackageCard from "../components/packageCard";
+import Header from "components/header";
+import PackageCard from "components/packageCard";
 
-import getButtonName from "../helpers/button/getButtonName";
+import getButtonName from "helpers/button/getButtonName";
 
 export default function Home({
   packageData,

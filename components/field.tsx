@@ -1,4 +1,4 @@
-import Styles from "../styles/Field.module.css";
+import Styles from "styles/Field.module.css";
 
 const Field = (props) => {
   return (

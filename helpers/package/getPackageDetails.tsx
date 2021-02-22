@@ -1,4 +1,4 @@
-import queryResponseToDetails from "../../helpers/query/queryResponseToDetails"
+import queryResponseToDetails from "helpers/query/queryResponseToDetails"
 import getQuery from "../query/getQuery"
 
 const getPackageDetails = async (url) => {

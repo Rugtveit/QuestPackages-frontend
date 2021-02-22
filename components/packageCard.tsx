@@ -1,4 +1,4 @@
-import Styles from "../styles/PackageCard.module.css";
+import Styles from "styles/PackageCard.module.css";
 
 import Button from "./button";
 
