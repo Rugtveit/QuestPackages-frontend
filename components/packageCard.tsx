@@ -2,7 +2,7 @@ import Styles from "styles/PackageCard.module.css";
 
 import Button from "./button";
 
-class packageCardProp {
+class PackageCardProp {
   packageName: string;
   packageVersion: string;
   packageUrl: string;
@@ -11,7 +11,7 @@ class packageCardProp {
   urlButtonName: string;
 }
 
-const PackageCard = (cardProp: packageCardProp) => {
+const PackageCard = (cardProp: PackageCardProp) => {
   return (
     <div className={Styles.card}>
       <h1 className={Styles.packageName}>{cardProp.packageName}</h1>

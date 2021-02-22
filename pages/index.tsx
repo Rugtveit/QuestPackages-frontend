@@ -1,5 +1,6 @@
 import Axios, { AxiosResponse } from "axios";
 import { GetStaticProps } from "next";
+import React from 'react'
 
 import Styles from "styles/Home.module.css";
 
@@ -8,24 +9,24 @@ import PackageCard from "components/packageCard";
 
 import getButtonName from "helpers/button/getButtonName";
 
-export default function Home({
-  packageData,
-}: {
-  packageData: {
-    id: string;
-    name: string;
-    version: string;
-    dependency: object;
-    url: string;
-    downloadUrl: string;
-    versions: string[];
-  }[];
-}) {
+class PackageData
+{
+  id: string;
+  name: string;
+  version: string;
+  dependency: object[];
+  url: string;
+  downloadUrl: string;
+  versions: string[];
+} 
+
+export default function Home({packageData}: {packageData: PackageData[]}) {
+  //console.log(packageData);
   return (
     <div className={Styles.container}>
       <Header />
       <div className={Styles.packageCards}>
-        {packageData.map(({ name, downloadUrl, url, version, id }) => {
+        {packageData.map(({ name, version, dependency, url, downloadUrl, versions, id }) => {
           const buttonName = getButtonName(url);
           return (
             <div>
@@ -50,7 +51,7 @@ export const getStaticProps: GetStaticProps = async () => {
   let apiResponse: AxiosResponse = await Axios.get(
     "http://localhost:5000/api/package"
   );
-  let packageData = apiResponse.data;
+  let packageData: PackageData[] = apiResponse.data;
 
   return {
     props: {

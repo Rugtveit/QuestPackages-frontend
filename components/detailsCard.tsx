@@ -3,7 +3,7 @@ import Styles from "styles/DetailsCard.module.css";
 import Button from "./button";
 import Field from "./field";
 
-class detailsCardProp {
+class DetailsCardProp {
   packageName: string;
   packageVersion: string;
   packageUrl: string;
@@ -16,7 +16,7 @@ class detailsCardProp {
   packagePublished: string;
 }
 
-const DetailsCard = (props: detailsCardProp) => {
+const DetailsCard = (props: DetailsCardProp) => {
   return (
     <div className={Styles.card}>
       <h1 className={Styles.cardName}>{props.packageName}</h1>
