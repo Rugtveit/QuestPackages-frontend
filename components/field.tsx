@@ -1,6 +1,12 @@
 import Styles from "styles/Field.module.css";
 
-const Field = (props) => {
+class fieldProp
+{
+  name: string;
+  value: string;
+}
+
+const Field = (props: fieldProp) => {
   return (
     <div className={Styles.field}>
       <h1 className={Styles.fieldName}>{props.name}</h1>

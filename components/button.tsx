@@ -1,8 +1,15 @@
 import Styles from "styles/Button.module.css";
 
-const Button = (props) => {
+class buttonProp 
+{
+  link: string;
+  name: string;
+  displayStyle?: string;
+}
+
+const Button = (props: buttonProp) => {
   return (
-    <a href={props.link} className={Styles.button}>
+    <a href={props.link} className={Styles.button} style={{display: props.displayStyle}}>
       {props.name}
     </a>
   );
