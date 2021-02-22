@@ -14,11 +14,8 @@ import getPackageDetails from "helpers/package/getPackageDetails";
 
 export default function Package({ packageData, packageDetails }) {
   const router = useRouter();
-  const { id } = router.query;
   const [isShown, setIsShown] = useState(false);
-  const description =
-    "This is a test description for now as I haven't gotten it yet!";
-  console.log(packageDetails);
+
   if (packageDetails.description == "null") {
     packageDetails.description = "No description found";
   }

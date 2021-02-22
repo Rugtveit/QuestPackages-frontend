@@ -17,10 +17,7 @@ const getPackageDetails = async (url) => {
   }
 
   var urlPaths = domain.pathname.split("/");
-  console.log(urlPaths[1]);
-  console.log(urlPaths[2]);
-  console.log(urlPaths[5]);
-
+  
   let queryData = await getQuery(urlPaths[1], urlPaths[2], urlPaths[5]);
   return queryResponseToDetails(queryData, urlPaths[1]);
 };
