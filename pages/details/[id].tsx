@@ -55,7 +55,7 @@ export default function Package({ packageData, packageDetails }) {
 }
 
 export async function getStaticProps({ params }) {
-  process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
+  if(process.env.NODE_ENV == 'development') process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
   const req = await Axios.get(`http://localhost:5000/api/package/${params.id}`);
   const data = req.data;
   let details = await getPackageDetails(data.downloadUrl);
@@ -66,7 +66,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
+  if(process.env.NODE_ENV == 'development') process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
   const req = await Axios.get(`http://localhost:5000/api/package/ids`);
   const data = await req.data;
 
