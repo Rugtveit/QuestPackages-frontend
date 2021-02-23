@@ -1,5 +1,5 @@
-import queryResponseToDetails from "helpers/query/queryResponseToDetails"
-import getQuery from "../query/getQuery"
+import queryResponseToDetails from "helpers/query/queryResponseToDetails";
+import getQuery from "../query/getQuery";
 
 const getPackageDetails = async (url) => {
   var errorObj = {
@@ -17,7 +17,7 @@ const getPackageDetails = async (url) => {
   }
 
   var urlPaths = domain.pathname.split("/");
-  
+
   let queryData = await getQuery(urlPaths[1], urlPaths[2], urlPaths[5]);
   return queryResponseToDetails(queryData, urlPaths[1]);
 };

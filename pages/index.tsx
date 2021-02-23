@@ -1,6 +1,6 @@
 import Axios, { AxiosResponse } from "axios";
 import { GetStaticProps } from "next";
-import React from 'react'
+import React from "react";
 
 import Styles from "styles/Home.module.css";
 
@@ -9,8 +9,7 @@ import PackageCard from "components/packageCard";
 
 import getButtonName from "helpers/button/getButtonName";
 
-class PackageData
-{
+class PackageData {
   id: string;
   name: string;
   version: string;
@@ -18,36 +17,39 @@ class PackageData
   url: string;
   downloadUrl: string;
   versions: string[];
-} 
+}
 
-export default function Home({packageData}: {packageData: PackageData[]}) {
+export default function Home({ packageData }: { packageData: PackageData[] }) {
   //console.log(packageData);
   return (
     <div className={Styles.container}>
       <Header />
       <div className={Styles.packageCards}>
-        {packageData.map(({ name, version, dependency, url, downloadUrl, versions, id }) => {
-          const buttonName = getButtonName(url);
-          return (
-            <div>
-              <PackageCard
-                urlButtonName={buttonName}
-                packageName={name}
-                packageVersion={version}
-                packageId={id}
-                packageUrl={url}
-                packageDownload={downloadUrl}
-              />
-            </div>
-          );
-        })}
+        {packageData.map(
+          ({ name, version, dependency, url, downloadUrl, versions, id }) => {
+            const buttonName = getButtonName(url);
+            return (
+              <div>
+                <PackageCard
+                  urlButtonName={buttonName}
+                  packageName={name}
+                  packageVersion={version}
+                  packageId={id}
+                  packageUrl={url}
+                  packageDownload={downloadUrl}
+                />
+              </div>
+            );
+          }
+        )}
       </div>
     </div>
   );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  if(process.env.NODE_ENV == 'development') process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
+  if (process.env.NODE_ENV == "development")
+    process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
   let apiResponse: AxiosResponse = await Axios.get(
     "http://localhost:5000/api/package"
   );
