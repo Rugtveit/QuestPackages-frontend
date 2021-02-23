@@ -1,4 +1,5 @@
 import Axios from "axios";
+import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
@@ -23,19 +24,19 @@ export default function Package({ packageData, packageDetails }) {
   return (
     <div className={Styles.container}>
       <Header />
-
-      <a
-        href="http://localhost:3000"
-        onMouseEnter={() => setIsShown(true)}
-        onMouseLeave={() => setIsShown(false)}
-        className={Styles.backButton}
-      >
-        <Arrow
-          className={Styles.arrow}
-          color={isShown ? "#8281D8" : "#6F6F6F"}
-        />
-        <h3 className={Styles.backText}>Back to packages</h3>
-      </a>
+      <Link href="/">
+        <a
+          onMouseEnter={() => setIsShown(true)}
+          onMouseLeave={() => setIsShown(false)}
+          className={Styles.backButton}
+        >
+          <Arrow
+            className={Styles.arrow}
+            color={isShown ? "#8281D8" : "#6F6F6F"}
+          />
+          <h3 className={Styles.backText}>Back to packages</h3>
+        </a>
+      </Link>
 
       <DetailsCard
         packageName={packageData.name}

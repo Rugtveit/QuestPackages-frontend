@@ -16,3 +16,11 @@
 .packageCard:first-of-type {
   margin: 0;
 }
+
+@media only screen and (max-width: 1538px)
+{
+  .packageCards
+  {
+    justify-content: center;
+  }
+}

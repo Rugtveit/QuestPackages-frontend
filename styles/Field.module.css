@@ -25,3 +25,21 @@
   text-align: center;
   margin: 2px;
 }
+
+
+@media only screen and (max-width: 600px)
+{
+  .field{
+    margin-left: 5px;
+  }
+
+  .fieldName
+  {
+    font-size: 14px;
+  }
+
+  .fieldValue
+  {
+    font-size: 12px;
+  }
+}

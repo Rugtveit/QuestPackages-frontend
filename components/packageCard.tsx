@@ -17,7 +17,7 @@ const PackageCard = (cardProp: PackageCardProp) => {
       <h1 className={Styles.packageName}>{cardProp.packageName}</h1>
       <div className={Styles.buttons}>
         <Button
-          link={`http://localhost:3000/details/${cardProp.packageId}`}
+          link={`/details/${cardProp.packageId}`}
           name="Details"
         />
         <Button

@@ -1,4 +1,5 @@
 import Styles from "styles/Button.module.css";
+import Link from 'next/link'
 
 class ButtonProp 
 {
@@ -9,9 +10,12 @@ class ButtonProp
 
 const Button = (props: ButtonProp) => {
   return (
-    <a href={props.link} className={Styles.button} style={{display: props.displayStyle}}>
-      {props.name}
-    </a>
+    
+      <Link href={props.link ?? 'a'}>
+        <a className={Styles.button} style={{display: props.displayStyle}}>
+          {props.name}
+        </a>
+      </Link>
   );
 };
 

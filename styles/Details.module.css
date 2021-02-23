@@ -1,7 +1,9 @@
 .container {
   margin: 0 auto;
+  flex-direction: column;
   max-width: 500px;
   width: 80%;
+  transition: 0.4s;
 }
 
 .backButton {
@@ -35,4 +37,11 @@
   font-weight: 500;
   font-size: 15px;
   line-height: 135%;
+}
+
+@media only screen and (max-width: 600px)
+{
+  .container{
+    width: 340px;
+  }
 }

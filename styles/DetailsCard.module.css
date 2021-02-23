@@ -11,6 +11,7 @@
   margin-right: 20px;
   margin-bottom: 20px;
   margin-top: 5px;
+  transition: 0.4s;
 }
 
 .cardName {
@@ -41,7 +42,7 @@
   line-height: 135%;
   color: #202020;
   width: 370px;
-  height: 250px;
+  min-height: 220px;
 }
 
 .fields {
@@ -67,4 +68,20 @@
   text-align: right;
   margin-left: auto;
   color: #646464;
+}
+
+@media only screen and (max-width: 600px)
+{
+  .card{
+    width: 330px;
+    height: 590px;
+  }
+  .description
+  {
+    width: 300px;
+  }
+  .cardName
+  {
+    font-size: 23px;
+  }
 }
