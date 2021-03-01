@@ -2,7 +2,7 @@
 
 <h2 align="center">
 
-A website that shows packages from [QPackages](https://qpackages.com/) API. 
+A website that shows packages from QuestPackages [Backend](https://github.com/Rugtveit/questpackages-backend). 
 
 Website made in [Next.js](https://nextjs.org/) and [Typescript](https://www.typescriptlang.org/)
 
