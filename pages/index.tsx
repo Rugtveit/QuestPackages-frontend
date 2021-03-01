@@ -59,5 +59,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       packageData,
     },
+    revalidate: 600
   };
 };
