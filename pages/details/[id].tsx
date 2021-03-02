@@ -63,6 +63,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { packageData: data, packageDetails: details },
+    revalidate: 300
   };
 }
 
