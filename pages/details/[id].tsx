@@ -10,6 +10,7 @@ import DetailsCard from "components/detailsCard";
 import Header from "components/header";
 
 import getButtonName from "helpers/button/getButtonName";
+import formatDate from "helpers/date/formatDate";
 
 import getPackageDetails from "helpers/package/getPackageDetails";
 
@@ -47,7 +48,7 @@ export default function Package({ packageData, packageDetails }) {
         packageDescription={packageDetails.description}
         packageAuthor={packageDetails.author}
         packageDownloads={packageDetails.downloads}
-        packagePublished={packageDetails.published}
+        packagePublished={formatDate(packageDetails.published)}
         urlButtonName={buttonName}
       />
     </div>
@@ -57,13 +58,15 @@ export default function Package({ packageData, packageDetails }) {
 export async function getStaticProps({ params }) {
   if (process.env.NODE_ENV == "development")
     process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
-  const req = await Axios.get(`${process.env.BACKEND_URL}/api/package/${params.id}`);
+  const req = await Axios.get(
+    `${process.env.BACKEND_URL}/api/package/${params.id}`
+  );
   const data = req.data;
   let details = await getPackageDetails(data.downloadUrl);
 
   return {
     props: { packageData: data, packageDetails: details },
-    revalidate: 300
+    revalidate: 300,
   };
 }
 

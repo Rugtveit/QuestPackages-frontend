@@ -20,7 +20,6 @@ class PackageData {
 }
 
 export default function Home({ packageData }: { packageData: PackageData[] }) {
-  //console.log(packageData);
   return (
     <div className={Styles.container}>
       <Header />
